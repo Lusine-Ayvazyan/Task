@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-  ImageBackground,
+  Image,
+  ScrollView,
   StatusBar,
   StyleSheet,
   TouchableOpacity,
@@ -28,16 +29,17 @@ export const HotelDetailsScreen: React.FC<Props> = ({route}) => {
   };
   return (
     <View style={styles.container}>
-      <View>
-        <StatusBar barStyle={'light-content'} />
-        <ImageBackground
+      <StatusBar barStyle={'light-content'} />
+      <TouchableOpacity onPress={goBack} style={styles.goBack}>
+        <Icons.Back />
+      </TouchableOpacity>
+      <ScrollView style={styles.scroll}>
+        <Image
           source={{uri: details.image}}
           style={styles.image}
-          resizeMode="cover">
-          <TouchableOpacity onPress={goBack}>
-            <Icons.Back />
-          </TouchableOpacity>
-        </ImageBackground>
+          resizeMode="cover"
+        />
+
         <View style={styles.textContainer}>
           <Text type="title" color="gray100">
             {details.name}
@@ -49,7 +51,7 @@ export const HotelDetailsScreen: React.FC<Props> = ({route}) => {
             {details.overview}
           </Text>
         </View>
-      </View>
+      </ScrollView>
       <View style={styles.buttonContainer}>
         <PrimaryButton
           title="Check availability"
@@ -61,15 +63,16 @@ export const HotelDetailsScreen: React.FC<Props> = ({route}) => {
   );
 };
 const styles = StyleSheet.create({
+  scroll: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     justifyContent: 'space-between',
   },
   image: {
-    width: '102%',
+    width: '100%',
     height: 399,
-    paddingLeft: 8,
-    paddingTop: StatusBar.currentHeight ?? +12,
   },
   buttonContainer: {
     backgroundColor: Colors.gray0,
@@ -90,5 +93,11 @@ const styles = StyleSheet.create({
   overview: {
     marginTop: 32,
     marginBottom: 16,
+  },
+  goBack: {
+    position: 'absolute',
+    top: StatusBar.currentHeight ?? +12,
+    zIndex: 1,
+    left: 8,
   },
 });
