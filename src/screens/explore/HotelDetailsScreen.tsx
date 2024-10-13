@@ -13,7 +13,7 @@ import {ExploreStackParamList} from '../../navigation/ExploreStack';
 import Icons from '../../../assets/svgs';
 import {Colors} from '../../config/Colors';
 import PrimaryButton from '../../components/PrimaryButton';
-import {Text} from '../../components/Text';
+import Text from '../../components/Text';
 import {openLink} from '../../config/utils';
 
 type Props = NativeStackScreenProps<

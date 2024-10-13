@@ -17,11 +17,7 @@ export const ExploreStack: React.FC = () => {
       initialRouteName="HotelListScreen"
       screenOptions={{headerShown: false}}>
       <Stack.Screen name="HotelListScreen" component={HotelListScreen} />
-      <Stack.Screen
-        name="HotelDetailsScreen"
-        component={HotelDetailsScreen}
-        options={{headerShown: false}}
-      />
+      <Stack.Screen name="HotelDetailsScreen" component={HotelDetailsScreen} />
     </Stack.Navigator>
   );
 };

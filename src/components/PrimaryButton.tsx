@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {TouchableOpacity, StyleSheet, ViewStyle, TextStyle} from 'react-native';
 import {Colors} from '../config/Colors';
-import {Text, TextType} from './Text';
+import Text, {TextType} from './Text';
 
 interface IPrimaryButtonProps {
   title: string;
@@ -38,4 +38,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PrimaryButton;
+export default memo(PrimaryButton);

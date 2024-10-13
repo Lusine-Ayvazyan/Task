@@ -73,7 +73,7 @@ export const providePlatformTextStyle = (styles: StyleProp<RNTextStyle>) => {
   return flatten;
 };
 
-export const Text: React.FC<ITextProps> = ({
+const Text: React.FC<ITextProps> = ({
   type = 'bodyS',
   color = 'gray100',
   style,
@@ -145,3 +145,4 @@ export const TextStyle = StyleSheet.create({
     fontFamily: FontFamily.Poppins,
   },
 });
+export default Text;

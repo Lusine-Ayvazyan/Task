@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {
   StyleSheet,
   View,
@@ -9,7 +9,7 @@ import {
 import {Colors} from '../config/Colors';
 import {IHotel} from '../models/hotel';
 import Icons from '../../assets/svgs';
-import {Text} from './Text';
+import Text from './Text';
 import PrimaryButton from './PrimaryButton';
 
 interface IHotelCard extends IHotel {
@@ -137,4 +137,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HotelCard;
+export default memo(HotelCard);

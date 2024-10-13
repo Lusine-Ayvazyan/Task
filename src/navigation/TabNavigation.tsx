@@ -5,7 +5,7 @@ import {ExploreStack} from './ExploreStack';
 import {StadiumsScreen} from '../screens/stadiums/StadiumsScreen';
 import {InformationScreen} from '../screens/Information/InformationScreen';
 import {ContactsScreen} from '../screens/contacts/ContactsScreen';
-import {Text} from '../components/Text';
+import Text from '../components/Text';
 import Icons from '../../assets/svgs';
 import {Colors} from '../config/Colors';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
@@ -19,27 +19,27 @@ type TabNavigationParamList = {
 
 const Tab = createBottomTabNavigator<TabNavigationParamList>();
 
-const TabBarIconWithLabel = ({
-  icon,
-  label,
-  focused,
-}: {
+interface TabBarIconWithLabelProps {
   icon: React.ReactNode;
   label: string;
   focused: boolean;
-}) => {
-  return (
-    <View style={styles.tabItemStyle}>
-      {icon}
-      <Text
-        type="little"
-        color={focused ? 'primary120' : 'gray60'}
-        style={styles.label}>
-        {label}
-      </Text>
-    </View>
-  );
-};
+}
+
+const TabBarIconWithLabel: React.FC<TabBarIconWithLabelProps> = React.memo(
+  ({icon, label, focused}) => {
+    return (
+      <View style={styles.tabItemStyle}>
+        {icon}
+        <Text
+          type="little"
+          color={focused ? 'primary120' : 'gray60'}
+          style={styles.label}>
+          {label}
+        </Text>
+      </View>
+    );
+  },
+);
 const TabNavigation = () => {
   return (
     <Tab.Navigator
