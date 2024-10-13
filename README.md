@@ -11,5 +11,10 @@
 . Start the app in android
 
    ```bash
-     npm run android
+     react-native run-android
+   ```
+. Start the app in ios
+
+   ```bash
+     react-native run-ios
    ```
